@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IPN - Sistema de Protocolos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #8C5057; /* Color de fondo principal */
+            color: #FFFFFF;
+        }
+        header {
+            background-color: #7A1C31; /* Color del encabezado */
+            padding: 10px;
+            text-align: left;
+            color: #FFFFFF;
+        }
+        .container {
+            padding: 20px;
+            text-align: center;
+            display: none; /* Oculta las pantallas por defecto */
+        }
+        .button {
+            background-color: #FFFFFF; /* Botones blancos */
+            color: #7A1C31;
+            border: none;
+            border-radius: 10px;
+            padding: 15px 20px;
+            margin: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .button:hover {
+            background-color: #D3D3D3; /* Efecto hover en botones */
+        }
+        .footer {
+            background-color: #7A1C31; /* Pie de página */
+            color: #FFFFFF;
+            text-align: center;
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+        input {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+        }
+        a {
+            color: #FFFFFF;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .visible {
+            display: block; /* Muestra la pantalla activa */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>IPN</h1>
+    </header>
+
+    <!-- Pantalla 1: Entrega de Protocolos -->
+    <div class="container" id="pantalla1">
+        <button class="button" onclick="cambiarPantalla('pantalla2')">Entrega de Protocolos</button>
+        <button class="button" onclick="cambiarPantalla('pantalla3')">Recepción de Protocolos</button>
+        <button class="button" onclick="cambiarPantalla('pantalla4')">Actualizar Estado de Protocolos</button>
+        <button class="button" onclick="cambiarPantalla('pantalla5')">Búsqueda de Sinodales Disponibles</button>
+    </div>
+
+    <!-- Pantalla 2: Login -->
+    <div class="container" id="pantalla2">
+        <h2>LOGIN</h2>
+        <form>
+            <input type="text" placeholder="Usuario"><br>
+            <input type="password" placeholder="Contraseña"><br>
+            <button class="button" type="button" onclick="cambiarPantalla('pantalla3')">ENTRAR</button>
+        </form>
+        <p><a href="#">¿Olvidaste tu contraseña?</a></p>
+        <p><a href="#">¿No tienes cuenta? REGISTRARSE</a></p>
+        <button class="button" onclick="cambiarPantalla('pantalla1')">Volver</button>
+    </div>
+
+    <!-- Pantalla 3: Sesiones de Seguimiento -->
+    <div class="container" id="pantalla3">
+        <button class="button">Organizar sesiones de seguimiento</button>
+        <button class="button">Registrar calificaciones y avances</button>
+        <button class="button">Reportar calificaciones finales</button>
+        <button class="button" onclick="cambiarPantalla('pantalla1')">Volver</button>
+    </div>
+
+    <!-- Pantalla 4: Protocolos Asignados -->
+    <div class="container" id="pantalla4">
+        <button class="button">Visualizar protocolos asignados</button>
+        <button class="button">Aceptar solicitudes de protocolos</button>
+        <button class="button">Actualizar progresos</button>
+        <button class="button" onclick="cambiarPantalla('pantalla1')">Volver</button>
+    </div>
+
+    <!-- Pantalla 5: Registro de Equipo -->
+    <div class="container" id="pantalla5">
+        <h2>Protocolos y Trabajos Terminales</h2>
+        <button class="button">Registro de Equipo</button>
+        <button class="button">Estado del Protocolo</button>
+        <div style="border: 1px solid #FFFFFF; margin-top: 20px; height: 300px; background-color: #FFFFFF; color: #000000; overflow-y: scroll;">
+            <!-- Contenido del protocolo -->
+            <p>Contenido del protocolo visible aquí.</p>
+        </div>
+        <button class="button" onclick="cambiarPantalla('pantalla1')">Volver</button>
+    </div>
+
+    <div class="footer">
+        <p>Instituto Politécnico Nacional - "La Técnica al Servicio de la Patria"</p>
+    </div>
+
+    <script>
+        // JavaScript para cambiar entre pantallas
+        function cambiarPantalla(id) {
+            // Oculta todas las pantallas
+            document.querySelectorAll('.container').forEach(function (pantalla) {
+                pantalla.classList.remove('visible');
+            });
+
+            // Muestra la pantalla seleccionada
+            document.getElementById(id).classList.add('visible');
+        }
+
+        // Muestra la primera pantalla por defecto
+        document.addEventListener('DOMContentLoaded', function () {
+            cambiarPantalla('pantalla1');
+        });
+    </script>
+</body>
+</html>
