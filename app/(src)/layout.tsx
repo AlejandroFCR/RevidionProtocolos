@@ -26,9 +26,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#8C5057] text-white`}
       >
+        <header className="bg-[#7A1C31]  p-5 font-semibold text-4xl">
+          IPN
+        </header>
         {children}
+        <footer className="bg-[#7A1C31]  fixed bottom-0 w-full p-5 text-lg text-center">
+          Instituto Politécnico Nacional - "La Técnica al Servicio de la Patria"
+        </footer>
       </body>
     </html>
   );
